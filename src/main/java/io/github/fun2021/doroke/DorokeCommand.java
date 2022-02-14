@@ -38,8 +38,10 @@ public class DorokeCommand implements CommandExecutor {
                 break;
             case "list":
                 list(sender, command, label, args);
+                break;
             case "reset":
                 reset(sender, command, label, args);
+                break;
         }
 
         return true;
