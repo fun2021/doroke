@@ -5,6 +5,7 @@ import org.bukkit.block.Chest;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -50,6 +51,21 @@ public final class DorobouListener implements Listener {
                 if (chance == 0) break;
             }
         }
+    }
+
+    @EventHandler
+    public void onDeath(PlayerDeathEvent event) {
+        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) { // It is in Game
+            return;
+        }
+
+        Player player = (Player) event.getEntity();
+
+        if (!dorobou.contains(player)) {
+            return;
+        }
+
+        dorobou.remove(player);
     }
 
 }
