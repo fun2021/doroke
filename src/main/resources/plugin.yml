@@ -1,0 +1,14 @@
+name: Doroke
+version: '${version}'
+main: io.github.fun2021.doroke.Doroke
+api-version: 1.16
+authors: [ azurata ]
+description: Play doroke in Spigot server
+
+commands:
+  doroke:
+    description: Doroke comannd
+
+permissions:
+  doroke.*:
+    description: Doroke permission

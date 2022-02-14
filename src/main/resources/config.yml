@@ -1,0 +1,14 @@
+keisatsu-stay:
+  x: 0
+  y: 0
+  z: 0
+dorobou-start:
+  x: 0
+  y: 0
+  z: 0
+keisatsu-start:
+  x: 0
+  y: 0
+  z: 0
+prepare-time: 30
+game-time: 60
