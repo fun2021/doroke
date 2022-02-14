@@ -22,7 +22,7 @@ public class DorokeListener implements Listener {
 
     @EventHandler
     public void onPunch(EntityDamageByEntityEvent event) {
-        if (gameManager.getPhase() != DorokeGameManager.Phase.BEFORE_GAME) {
+        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) {
             return;
         }
 
@@ -34,6 +34,7 @@ public class DorokeListener implements Listener {
         Player attacker = (Player) event.getDamager();
 
         if (dorobou.contains(attackee) && keisatsu.contains(attacker)) {
+            DorokeLogger.info("A");
             attackee.setHealth(0);
         }
     }
