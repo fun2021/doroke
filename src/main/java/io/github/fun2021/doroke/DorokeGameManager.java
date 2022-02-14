@@ -3,6 +3,8 @@ package io.github.fun2021.doroke;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Set;
@@ -43,6 +45,10 @@ public class DorokeGameManager {
         }.runTaskLater(Doroke.getInstance(), configData.prepareTime);
 
         phase = Phase.PREPARING;
+
+        for (Listener listener : Doroke.getInstance().listeners) {
+            Bukkit.getPluginManager().registerEvents(listener, Doroke.getInstance());
+        }
     }
 
     private void start() {
@@ -60,6 +66,9 @@ public class DorokeGameManager {
      */
     void end() {
         phase = Phase.BEFORE_GAME;
+        for (Listener listener : Doroke.getInstance().listeners) {
+            HandlerList.unregisterAll(listener);
+        }
     }
 
     public void reset() {

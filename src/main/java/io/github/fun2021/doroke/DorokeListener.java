@@ -22,10 +22,6 @@ public class DorokeListener implements Listener {
 
     @EventHandler
     public void onPunch(EntityDamageByEntityEvent event) {
-        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) {
-            return;
-        }
-
         if (!(event.getDamager() instanceof Player && event.getEntity() instanceof Player)) {
             return;
         }

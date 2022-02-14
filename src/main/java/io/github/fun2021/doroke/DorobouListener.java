@@ -25,10 +25,6 @@ public final class DorobouListener implements Listener {
 
     @EventHandler
     public void onOpenChest(InventoryOpenEvent event) {
-        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) { // It is in Game
-            return;
-        }
-
         Inventory inventory = event.getInventory();
 
         if (!(inventory.getHolder() instanceof Chest)) {
@@ -55,10 +51,6 @@ public final class DorobouListener implements Listener {
 
     @EventHandler
     public void onDeath(PlayerDeathEvent event) {
-        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) { // It is in Game
-            return;
-        }
-
         Player player = (Player) event.getEntity();
 
         if (!dorobou.contains(player)) {

@@ -21,10 +21,6 @@ public final class KeisatsuListener implements Listener {
 
     @EventHandler
     public void onOpenChest(InventoryOpenEvent event) {
-        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) {
-            return;
-        }
-
         Player player = (Player) event.getPlayer();
 
         if (keisatsu.contains(player)) {
@@ -34,10 +30,6 @@ public final class KeisatsuListener implements Listener {
 
     @EventHandler
     public void onPickupItem(EntityPickupItemEvent event) {
-        if (gameManager.getPhase() == DorokeGameManager.Phase.BEFORE_GAME) {
-            return;
-        }
-
         if (!(event.getEntity() instanceof Player)) {
             return;
         }
